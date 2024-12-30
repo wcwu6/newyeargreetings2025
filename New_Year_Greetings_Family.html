@@ -17,12 +17,10 @@
             font-size: 24px;
             color: yellow;
             background-color: purple;
-            padding: 20px;
+            padding: 10px 20px; /* 緊縮背景，僅包覆文字 */
             display: inline-block;
-            margin-top: 20px;
-            border: 2px solid yellow; /* 加入四邊框 */
-            width: fit-content; /* 自適應內容大小 */
-            margin: auto; /* 居中對齊 */
+            margin: auto; /* 保持居中 */
+            border: 2px solid yellow; /* 框線 */
         }
         .message {
             margin-top: 50px;
@@ -81,7 +79,7 @@
         }, 500); // 每 500 毫秒切換一次
 
         function showMessage() {
-            // 顯示後續內容
+            // 顯示第二部分文字
             setTimeout(() => {
                 message.style.display = 'block';
             }, 1000); // 延遲 1 秒顯示
