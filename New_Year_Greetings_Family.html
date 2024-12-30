@@ -10,31 +10,51 @@
             color: white;
             font-family: monospace;
             text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .thank-you {
-            font-size: 24px;
+            font-size: 6vw; /* 動態調整文字大小以適配螢幕寬度 */
             color: yellow;
             background-color: purple;
-            padding: 10px 20px; /* 緊縮背景，僅包覆文字 */
+            padding: 10px;
             display: inline-block;
-            margin: auto; /* 保持居中 */
-            border: 2px solid yellow; /* 框線 */
+            word-wrap: break-word;
+            border: 4px solid yellow;
+            box-sizing: border-box; /* 包含內邊距與邊框計算 */
         }
         .message {
-            margin-top: 50px;
-            font-size: 18px;
-            display: none; /* 初始隱藏 */
+            margin-top: 30px;
+            font-size: 4.5vw; /* 動態調整文字大小 */
+            text-align: center;
         }
         .blessing {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 4vw;
             color: cyan;
         }
         .signature {
-            margin-top: 50px;
-            font-size: 16px;
+            margin-top: 20px;
+            font-size: 3.5vw;
+        }
+        @media (min-width: 600px) {
+            /* 當螢幕寬度大於 600px 時，設置固定文字大小 */
+            .thank-you {
+                font-size: 24px;
+            }
+            .message {
+                font-size: 18px;
+            }
+            .blessing {
+                font-size: 20px;
+            }
+            .signature {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -46,7 +66,7 @@
     </div>
     <div class="message" id="message">
         <p>把拔、馬麻和阿胖：</p>
-        <p>感謝大家一直以來的照顧。</p>
+        <p>感謝大家一直以來的照顧與指導。</p>
         <p>我們是快樂的胖胖一族。</p>
         <div class="blessing">
             *************************************<br>
@@ -66,14 +86,12 @@
         let blinkCount = 0;
 
         const blinkInterval = setInterval(() => {
-            // 切換可見性
+            // 閃爍四次後停止
             thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
             isVisible = !isVisible;
-            blinkCount++;
-
-            if (blinkCount >= 8) { // 每次切換計為一次，共 8 次（4 次顯示和隱藏）
+            if (++blinkCount >= 8) { // 顯示和隱藏各計一次，共閃爍四次
                 clearInterval(blinkInterval);
-                thankYou.style.visibility = 'visible'; // 最後保持可見
+                thankYou.style.visibility = 'visible'; // 最後保持顯示
                 showMessage();
             }
         }, 500); // 每 500 毫秒切換一次
