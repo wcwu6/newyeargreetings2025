@@ -14,45 +14,29 @@
             box-sizing: border-box;
         }
         .thank-you {
-            font-size: 5vw; /* 動態調整文字大小 */
+            font-size: 24px;
             color: yellow;
             background-color: purple;
-            padding: 1vw; /* 動態調整內邊距 */
+            padding: 20px;
             display: inline-block;
-            margin-top: 2vw;
-            white-space: pre-wrap; /* 保持格式 */
-            max-width: 90%; /* 防止內容溢出 */
-            box-sizing: border-box;
+            margin-top: 20px;
+            border: 2px solid yellow; /* 加入四邊框 */
+            width: fit-content; /* 自適應內容大小 */
+            margin: auto; /* 居中對齊 */
         }
         .message {
-            margin-top: 5vw;
-            font-size: 4vw; /* 動態調整文字大小 */
+            margin-top: 50px;
+            font-size: 18px;
             display: none; /* 初始隱藏 */
         }
         .blessing {
-            margin-top: 3vw;
-            font-size: 4vw;
+            margin-top: 20px;
+            font-size: 20px;
             color: cyan;
         }
         .signature {
-            margin-top: 5vw;
-            font-size: 3.5vw;
-        }
-        @media (min-width: 600px) {
-            /* 桌面環境固定文字大小 */
-            .thank-you {
-                font-size: 24px;
-                padding: 10px;
-            }
-            .message {
-                font-size: 18px;
-            }
-            .blessing {
-                font-size: 20px;
-            }
-            .signature {
-                font-size: 16px;
-            }
+            margin-top: 50px;
+            font-size: 16px;
         }
     </style>
 </head>
