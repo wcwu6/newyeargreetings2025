@@ -10,46 +10,35 @@
             color: white;
             font-family: monospace;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
         .thank-you {
-            font-size: 5vw; /* 動態調整文字大小 */
+            font-size: 6vw; /* 動態調整文字大小以適配螢幕寬度 */
             color: yellow;
             background-color: purple;
-            padding: 1vw; /* 動態調整內邊距 */
+            padding: 10px;
             display: inline-block;
-            border: 4px solid orange; /* 橘色框框 */
-            white-space: pre-wrap; /* 保持格式 */
-            margin: 0 auto;
-            box-sizing: border-box;
+            margin-top: 20px;
+            word-wrap: break-word; /* 在必要時換行 */
         }
         .message {
-            font-size: 4vw; /* 動態調整文字大小 */
+            margin-top: 50px;
+            font-size: 5vw; /* 動態調整文字大小 */
             display: none; /* 初始隱藏 */
-            max-width: 90%;
-            margin-top: 20px;
         }
         .blessing {
             margin-top: 20px;
-            font-size: 4vw;
+            font-size: 4.5vw; /* 動態調整文字大小 */
             color: cyan;
         }
         .signature {
-            margin-bottom: 10px;
-            font-size: 3.5vw;
+            margin-top: 50px;
+            font-size: 4vw; /* 動態調整文字大小 */
         }
         @media (min-width: 600px) {
-            /* 桌面環境固定文字大小 */
+            /* 當螢幕寬度大於 600px 時，設置固定文字大小 */
             .thank-you {
                 font-size: 24px;
-                padding: 10px;
             }
             .message {
                 font-size: 18px;
@@ -69,7 +58,7 @@
         ███ THANK YOU ███<br>
         ██████████
     </div>
-    <div class="message" id="message">
+    <div id="message" class="message">
         <p>老師好：</p>
         <p>感謝您一直以來的照顧與指導。</p>
         <p>會繼續努力學習，回國後全力回饋。</p>
@@ -78,16 +67,14 @@
             *   敬祝 身體健康，闔家平安！       *<br>
             *************************************
         </div>
+        <div class="signature">
+            學生 吳紋綺 敬上
+        </div>
     </div>
-    <div class="signature" id="signature">
-        學生 吳紋綺 敬上
-    </div>
-
     <script>
         // 控制 THANK YOU 閃爍
         const thankYou = document.getElementById('thankYou');
         const message = document.getElementById('message');
-        const signature = document.getElementById('signature');
         let isVisible = true;
         let blinkCount = 0;
 
@@ -108,10 +95,10 @@
             // 顯示後續內容
             setTimeout(() => {
                 message.style.display = 'block';
-                signature.style.display = 'block'; // 確保簽名在底部
             }, 1000); // 延遲 1 秒顯示
         }
     </script>
 </body>
 </html>
+
 
