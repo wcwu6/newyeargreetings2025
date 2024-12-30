@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Greeting</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        .thank-you {
+            font-size: 24px;
+            color: yellow;
+            background-color: purple;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .message {
+            margin-top: 50px;
+            font-size: 18px;
+        }
+        .blessing {
+            margin-top: 20px;
+            font-size: 20px;
+            color: cyan;
+        }
+        .signature {
+            margin-top: 50px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="thankYou" class="thank-you">
+        ██████████<br>
+        ███ THANK YOU ███<br>
+        ██████████
+    </div>
+    <div class="message">
+        <p>老師好：</p>
+        <p>感謝您一直以來的照顧與指導。</p>
+        <p>會繼續努力學習，回國後全力回饋。</p>
+        <div class="blessing">
+            *************************************<br>
+            *        身體健康，闔家平安！       *<br>
+            *************************************
+        </div>
+        <div class="signature">
+            學生 吳紋綺 敬上
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 控制閃爍
+        const thankYou = document.getElementById('thankYou');
+        let isVisible = true;
+
+        setInterval(() => {
+            // 切換可見性
+            thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
+            isVisible = !isVisible;
+        }, 1500); // 每 500 毫秒切換一次
+    </script>
+</body>
+</html>
