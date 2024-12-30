@@ -10,12 +10,12 @@
             color: white;
             font-family: monospace;
             text-align: center;
-            padding: 20px;
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             height: 100vh;
         }
@@ -25,25 +25,24 @@
             background-color: purple;
             padding: 1vw; /* 動態調整內邊距 */
             display: inline-block;
-            margin-top: 2vw;
+            border: 4px solid orange; /* 橘色框框 */
             white-space: pre-wrap; /* 保持格式 */
-            max-width: 90%; /* 防止內容溢出 */
-            border: 4px solid yellow; /* 加框線 */
+            margin: 0 auto;
             box-sizing: border-box;
         }
         .message {
-            margin-top: 5vw;
             font-size: 4vw; /* 動態調整文字大小 */
             display: none; /* 初始隱藏 */
-            max-width: 90%; /* 防止內容過寬 */
+            max-width: 90%;
+            margin-top: 20px;
         }
         .blessing {
-            margin-top: 3vw;
+            margin-top: 20px;
             font-size: 4vw;
             color: cyan;
         }
         .signature {
-            margin-top: 5vw;
+            margin-bottom: 10px;
             font-size: 3.5vw;
         }
         @media (min-width: 600px) {
@@ -79,15 +78,16 @@
             *   敬祝 身體健康，闔家平安！       *<br>
             *************************************
         </div>
-        <div class="signature">
-            學生 吳紋綺 敬上
-        </div>
+    </div>
+    <div class="signature" id="signature">
+        學生 吳紋綺 敬上
     </div>
 
     <script>
         // 控制 THANK YOU 閃爍
         const thankYou = document.getElementById('thankYou');
         const message = document.getElementById('message');
+        const signature = document.getElementById('signature');
         let isVisible = true;
         let blinkCount = 0;
 
@@ -108,8 +108,10 @@
             // 顯示後續內容
             setTimeout(() => {
                 message.style.display = 'block';
+                signature.style.display = 'block'; // 確保簽名在底部
             }, 1000); // 延遲 1 秒顯示
         }
     </script>
 </body>
 </html>
+
