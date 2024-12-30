@@ -13,26 +13,41 @@
             padding: 20px;
         }
         .thank-you {
-            font-size: 24px;
+            font-size: 6vw; /* 動態調整文字大小以適配螢幕寬度 */
             color: yellow;
             background-color: purple;
-            padding: 20px;
+            padding: 10px;
             display: inline-block;
             margin-top: 20px;
+            word-wrap: break-word; /* 在必要時換行 */
         }
         .message {
             margin-top: 50px;
-            font-size: 18px;
-            display: none; /* 初始隱藏 */
+            font-size: 5vw; /* 動態調整文字大小 */
         }
         .blessing {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 4.5vw; /* 動態調整文字大小 */
             color: cyan;
         }
         .signature {
             margin-top: 50px;
-            font-size: 16px;
+            font-size: 4vw; /* 動態調整文字大小 */
+        }
+        @media (min-width: 600px) {
+            /* 當螢幕寬度大於 600px 時，設置固定文字大小 */
+            .thank-you {
+                font-size: 24px;
+            }
+            .message {
+                font-size: 18px;
+            }
+            .blessing {
+                font-size: 20px;
+            }
+            .signature {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -42,7 +57,7 @@
         ███ THANK YOU ███<br>
         ██████████
     </div>
-    <div class="message" id="message">
+    <div class="message">
         <p>主任好：</p>
         <p>感謝您一直以來的照顧與指導。</p>
         <p>待學有所成，回國後一定全力回饋，</p>
@@ -56,31 +71,5 @@
             學生 吳紋綺 敬賀
         </div>
     </div>
-
-    <script>
-        // 控制 THANK YOU 閃爍
-        const thankYou = document.getElementById('thankYou');
-        const message = document.getElementById('message');
-        let isVisible = true;
-        let blinkCount = 0;
-
-        const blinkInterval = setInterval(() => {
-            // 閃爍兩次後停止
-            thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
-            isVisible = !isVisible;
-            if (++blinkCount >= 8) { // 顯示和隱藏各計八次，共閃爍四次
-                clearInterval(blinkInterval);
-                thankYou.style.visibility = 'visible'; // 最後保持顯示
-                showMessage();
-            }
-        }, 500); // 每 500 毫秒切換一次
-
-        function showMessage() {
-            // 顯示第二部分文字
-            setTimeout(() => {
-                message.style.display = 'block';
-            }, 1000); // 延遲 1 秒顯示
-        }
-    </script>
 </body>
 </html>
