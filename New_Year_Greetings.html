@@ -24,6 +24,7 @@
         .message {
             margin-top: 50px;
             font-size: 5vw; /* 動態調整文字大小 */
+            display: none; /* 初始隱藏 */
         }
         .blessing {
             margin-top: 20px;
@@ -57,19 +58,46 @@
         ███ THANK YOU ███<br>
         ██████████
     </div>
-    <div class="message">
+    <div id="message" class="message">
         <p>主任好：</p>
         <p>感謝您一直以來的照顧與指導。</p>
         <p>待學有所成，回國後一定全力回饋，</p>
         <p>並努力協助處理部務科務及臨床事務</p>
         <div class="blessing">
             *************************************<br>
-            *        身體健康，闔家平安！       *<br>
+            *   敬祝 身體健康，闔家平安！       *<br>
             *************************************
         </div>
         <div class="signature">
-            學生 吳紋綺 敬賀
+            學生 吳紋綺 敬上
         </div>
     </div>
+    <script>
+        // 控制 THANK YOU 閃爍
+        const thankYou = document.getElementById('thankYou');
+        const message = document.getElementById('message');
+        let isVisible = true;
+        let blinkCount = 0;
+
+        const blinkInterval = setInterval(() => {
+            // 切換可見性
+            thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
+            isVisible = !isVisible;
+            blinkCount++;
+
+            if (blinkCount >= 8) { // 每次切換計為一次，共 8 次（4 次顯示和隱藏）
+                clearInterval(blinkInterval);
+                thankYou.style.visibility = 'visible'; // 最後保持可見
+                showMessage();
+            }
+        }, 500); // 每 500 毫秒切換一次
+
+        function showMessage() {
+            // 顯示後續內容
+            setTimeout(() => {
+                message.style.display = 'block';
+            }, 1000); // 延遲 1 秒顯示
+        }
+    </script>
 </body>
 </html>
