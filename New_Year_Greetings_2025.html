@@ -23,6 +23,7 @@
         .message {
             margin-top: 50px;
             font-size: 18px;
+            display: none; /* 初始隱藏 */
         }
         .blessing {
             margin-top: 20px;
@@ -41,7 +42,7 @@
         ███ THANK YOU ███<br>
         ██████████
     </div>
-    <div class="message">
+    <div class="message" id="message">
         <p>老師好：</p>
         <p>感謝您一直以來的照顧與指導。</p>
         <p>會繼續努力學習，回國後全力回饋。</p>
@@ -56,15 +57,31 @@
     </div>
 
     <script>
-        // JavaScript 控制閃爍
+        // 控制 THANK YOU 閃爍
         const thankYou = document.getElementById('thankYou');
+        const message = document.getElementById('message');
         let isVisible = true;
+        let blinkCount = 0;
 
-        setInterval(() => {
-            // 切換可見性
+        const blinkInterval = setInterval(() => {
+            // 閃爍四次後停止
             thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
             isVisible = !isVisible;
-        }, 1500); // 每 500 毫秒切換一次
+            blinkCount++;
+
+            if (blinkCount >= 8) { // 每次切換計為一次，共 8 次（4 次顯示和隱藏）
+                clearInterval(blinkInterval);
+                thankYou.style.visibility = 'visible'; // 最後保持可見
+                showMessage();
+            }
+        }, 500); // 每 500 毫秒切換一次
+
+        function showMessage() {
+            // 顯示後續內容
+            setTimeout(() => {
+                message.style.display = 'block';
+            }, 1000); // 延遲 1 秒顯示
+        }
     </script>
 </body>
 </html>
