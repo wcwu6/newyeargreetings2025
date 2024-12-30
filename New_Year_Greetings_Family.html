@@ -11,28 +11,48 @@
             font-family: monospace;
             text-align: center;
             padding: 20px;
+            box-sizing: border-box;
         }
         .thank-you {
-            font-size: 24px;
+            font-size: 5vw; /* 動態調整文字大小 */
             color: yellow;
             background-color: purple;
-            padding: 20px;
+            padding: 1vw; /* 動態調整內邊距 */
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 2vw;
+            white-space: pre-wrap; /* 保持格式 */
+            max-width: 90%; /* 防止內容溢出 */
+            box-sizing: border-box;
         }
         .message {
-            margin-top: 50px;
-            font-size: 18px;
+            margin-top: 5vw;
+            font-size: 4vw; /* 動態調整文字大小 */
             display: none; /* 初始隱藏 */
         }
         .blessing {
-            margin-top: 20px;
-            font-size: 20px;
+            margin-top: 3vw;
+            font-size: 4vw;
             color: cyan;
         }
         .signature {
-            margin-top: 50px;
-            font-size: 16px;
+            margin-top: 5vw;
+            font-size: 3.5vw;
+        }
+        @media (min-width: 600px) {
+            /* 桌面環境固定文字大小 */
+            .thank-you {
+                font-size: 24px;
+                padding: 10px;
+            }
+            .message {
+                font-size: 18px;
+            }
+            .blessing {
+                font-size: 20px;
+            }
+            .signature {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -64,18 +84,20 @@
         let blinkCount = 0;
 
         const blinkInterval = setInterval(() => {
-            // 閃爍兩次後停止
+            // 切換可見性
             thankYou.style.visibility = isVisible ? 'visible' : 'hidden';
             isVisible = !isVisible;
-            if (++blinkCount >= 8) { // 顯示和隱藏各計一次，共閃爍四次
+            blinkCount++;
+
+            if (blinkCount >= 8) { // 每次切換計為一次，共 8 次（4 次顯示和隱藏）
                 clearInterval(blinkInterval);
-                thankYou.style.visibility = 'visible'; // 最後保持顯示
+                thankYou.style.visibility = 'visible'; // 最後保持可見
                 showMessage();
             }
         }, 500); // 每 500 毫秒切換一次
 
         function showMessage() {
-            // 顯示第二部分文字
+            // 顯示後續內容
             setTimeout(() => {
                 message.style.display = 'block';
             }, 1000); // 延遲 1 秒顯示
