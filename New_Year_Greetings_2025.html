@@ -11,7 +11,13 @@
             font-family: monospace;
             text-align: center;
             padding: 20px;
+            margin: 0;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .thank-you {
             font-size: 5vw; /* 動態調整文字大小 */
@@ -22,12 +28,14 @@
             margin-top: 2vw;
             white-space: pre-wrap; /* 保持格式 */
             max-width: 90%; /* 防止內容溢出 */
+            border: 4px solid yellow; /* 加框線 */
             box-sizing: border-box;
         }
         .message {
             margin-top: 5vw;
             font-size: 4vw; /* 動態調整文字大小 */
             display: none; /* 初始隱藏 */
+            max-width: 90%; /* 防止內容過寬 */
         }
         .blessing {
             margin-top: 3vw;
